@@ -29,7 +29,7 @@ var app = {
 		// Leemos por ajax el archivos opcion1.html de la carpeta opciones
 		xhReq.open("GET", "opciones/opcion0.html", false);
 		xhReq.send(null);
-		document.getElementById("contenidoCuerpo1").innerHTML=xhReq.responseText;
+		document.getElementById("contenidoCuerpo").innerHTML=xhReq.responseText;
 
 		// Leemos por ajax el archivos menu.html de la carpeta opciones
 		xhReq.open("GET", "opciones/menu.html", false);
@@ -37,23 +37,6 @@ var app = {
 		document.getElementById("contenidoMenu").innerHTML=xhReq.responseText;
 		
 		// Creamos los 2 scroll mediante el plugin iscroll, uno para el men? principal y otro para el cuerpo
-myScroll = new iScroll('wrapper', {
-                 hideScrollbar: true,
-				onBeforeScrollStart: function (e) {
-            var target = e.target;
-			e.stopImmediatePropagation();
-            while (target.nodeType != 1) target = target.parentNode;
-
-            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'CHECKBOX') {
-               	e.preventDefault();
-            } else {
-                $(target).bind('blur', function(){
-                    window.scrollTo(0,0);
-                });
-			
-            }
-        }
-    });
 		myScrollMenu = new iScroll('wrapperMenu', {
                  hideScrollbar: true,
 				 onBeforeScrollStart: function (e) {
@@ -125,7 +108,7 @@ function menu(opcion){
 		// Recogemos mediante ajax el contenido del html seg?n la opci?n clickeada en el menu
 		xhReq.open("GET", "opciones/opcion"+opcion+".html", false);
 		xhReq.send(null);
-		document.getElementById("contenidoCuerpo1").innerHTML=xhReq.responseText;
+		document.getElementById("contenidoCuerpo").innerHTML=xhReq.responseText;
 		
 		// Refrescamos el elemento iscroll seg?n el contenido ya a?adido mediante ajax, y hacemos que se desplace al top
 		/*myScroll.refresh();
@@ -133,8 +116,6 @@ function menu(opcion){
 		myScrollMenu.refresh();
 		myScrollMenu.scrollTo(0,0);
 		document.body.style.height = screen.availHeight + 'px';*/
-		myScroll.refresh();
-		myScroll.scrollTo(0,0);
 		var screens = parseInt(screen.availHeight) + 200;
 		document.body.style.height = screens.toString() + 'px';
 		if(opcion == '2')
