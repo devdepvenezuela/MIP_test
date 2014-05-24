@@ -1,0 +1,121 @@
+<div class="borde-h1 color1"></div><h1>Mis Pacientes</h1>
+<style>
+#contact {
+	width: 100%; 
+	background: #c9d0de; border: 1px solid #e1e1e1;
+	-moz-box-shadow: 0px 0px 8px #444;
+	-webkit-box-shadow: 0px 0px 8px #444;
+	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+}
+
+label {
+	float: left; clear: left; margin: 11px 20px 0 0; 
+	text-align: left; font-size: 16px; color: #445668; 
+	 text-shadow: 0px 1px 0px #f2f2f2;
+}
+
+input {
+	width: 80%; height: 35px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0; 
+	background: #5E768D;
+	background: -moz-linear-gradient(top, #546A7F 0%, #5E768D 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#5E768D)); /* webkit */
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+	font-family: sans-serif; font-size: 16px; color: #f2f2f2; text-shadow: 0px -1px 0px #334f71; 
+}
+
+	input::-webkit-input-placeholder  {
+    	color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;  
+	}
+	input:-moz-placeholder {
+	    color: #a1b2c3; text-shadow: 0px -1px 0px #38506b; 
+	}
+
+textarea {
+	width: 80%; height: 170px; padding: 12px 20px 0px 20px; margin: 0 0 20px 0; 
+	background: #5E768D;
+	background: -moz-linear-gradient(top, #546A7F 0%, #5E768D 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#5E768D)); /* webkit */
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+	font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-size: 16px; color: #f2f2f2; text-shadow: 0px -1px 0px #334f71; 
+}
+	textarea::-webkit-input-placeholder  {
+    	color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;  
+	}
+	textarea:-moz-placeholder {
+	    color: #a1b2c3; text-shadow: 0px -1px 0px #38506b; 
+	}
+	
+input:focus, textarea:focus {
+	background: #728eaa;
+	background: -moz-linear-gradient(top, #668099 0%, #728eaa 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#668099), color-stop(20%,#728eaa)); /* webkit */
+}
+
+input[type=button] {
+	width: 40%; height: 52px; float: right; padding: 10px 15px; margin: 0 15px 0 0;
+	-moz-box-shadow: 0px 0px 5px #999;-webkit-box-shadow: 0px 0px 5px #999;
+	border: 1px solid #556f8c;
+	background: -moz-linear-gradient(top, #718DA9 0%, #415D79 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#718DA9), color-stop(100%,#415D79)); /* webkit */
+	cursor: pointer;
+}
+
+select {
+	
+	width: 80%; height: 35px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0; 
+	background: #5E768D;
+	background: -moz-linear-gradient(top, #546A7F 0%, #5E768D 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#5E768D)); /* webkit */
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+	font-family: sans-serif; font-size: 16px; color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+	}
+</style>
+<div id="contact">
+	<form>
+		<fieldset>
+         <div id="nombre">
+			<label for="pac_nombre">Nombre:</label><br />
+			<input type="text" onfocus="doIt('#nombre')"  id="pac_nombre" placeholder="Nombre del paciente" />
+            </div>
+             <div id="cedula">
+            <label for="pac_ci">Cedula:</label><br />
+			<input onfocus="doIt('#cedula')" type="text"  id="pac_ci" placeholder="Cedula del paciente" />
+            </div>
+             <div id="telefono">
+            <label for="pac_telf">Telefono:</label><br />
+			<input onfocus="doIt('#telefono')" type="number"  id="pac_telf" placeholder="Telefono del paciente" />
+            </div>
+          <div id="email">
+			<label for="pac_email">Email:</label><br />
+			<input onfocus="doIt('#email')" type="email"  id="pac_email" placeholder="Email del paciente" />
+            </div>
+          <div id="ingreso">
+                <label for="pac_ingreso">Ingreso:</label><br/>
+             <select onfocus="doIt('#ingreso')"  id = "pac_ingreso">
+             <option selected="selected" value = "">Seleccione...</option>
+             <option value = "Artritis Idiopática Juvenil">Artritis Idiopática Juvenil</option>
+             <option value = "Artritis  Psoriática (APs)">Artritis  Psoriática (APs)</option>
+               <option value = "Artritis Reumatoide (AR)">Artritis Reumatoide (AR)</option>
+                <option value = "Enfermedad de Crohn (EC)">Enfermedad de Crohn (EC)</option>
+               <option value = "Espondilitis Anquilosante (EA)">Espondilitis Anquilosante (EA)</option>
+               <option value = "Espondilitis Axial No Radiográfica">Espondilitis Axial No Radiográfica</option>
+               <option value = "Psoriasis (PS)">Psoriasis (PS)</option>
+               <option value = "Colitis Ulcerativa">Colitis Ulcerativa</option>
+               <option value = "Otros">Otros</option>
+             </select>
+             </div>
+             <div id="mensaje">
+			<label for="pac_mensaje">Mensaje:</label><br />
+			<textarea onfocus="doIt('#mensaje')" id="pac_mensaje"  placeholder="Ingrese un mensaje adicional"></textarea> 
+            </div>
+			 <div id="terminos">
+                 <label for="chkterminos">Confirmo que el paciente manifestó su voluntad de ser contactado por el programa de pacientes Acompañarte</label><br />
+                    <input onfocus="doIt('#terminos')"  type="checkbox" id="chkterminos" />
+                    </div>
+			<input id="btnregister" type="button" onclick="register()"  value="Registrar" />
+		</fieldset>
+	</form>
+</div>
