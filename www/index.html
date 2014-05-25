@@ -18,6 +18,9 @@
     }
 	
 	function doIt(field) {
+$('html, body').animate({
+    scrollTop: ($(field).offset().top)
+},500);
     
  	/*var wrapper = document.getElementById("wrapper");
     var scroller = new iScroll('wrapper');
