@@ -18,11 +18,27 @@
     }
 	
 	function doIt(field) {
-		field = "'" + field + "'";
-$('html, body').animate({
-    scrollTop: ($(field).offset().top)
-},500);
-    
+	var wrapper = document.getElementById("wrapper");
+    var scroller = new iScroll('wrapper', {
+                 hideScrollbar: true,
+				onBeforeScrollStart: function (e) {
+            var target = e.target;
+			e.stopImmediatePropagation();
+            while (target.nodeType != 1) target = target.parentNode;
+
+            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'CHECKBOX') {
+               	e.preventDefault();
+            } else {
+                $(target).bind('blur', function(){
+                    window.scrollTo(0,0);
+                });
+			
+            }
+        }
+    });
+        scroller.scrollToElement(field, 1000);
+		scroller.destroy();
+		scroller = null;
  	/*var wrapper = document.getElementById("wrapper");
     var scroller = new iScroll('wrapper');
         scroller.scrollToElement(field, 1000);
