@@ -178,7 +178,7 @@ function menu(opcion){
 				{docpais.value = pais; }	
 			}
 			$('html, body').animate({scrollTop: $('#contenidoCuerpo').offset().top + 20}, 10);
-		
+			$.mobile.silentScroll(0);
 		// A?adimos las clases necesarias para que la capa cuerpo se mueva al centro de nuestra app y muestre el contenido
 		cuerpo.className = 'page transition center';
 		estado="cuerpo";
