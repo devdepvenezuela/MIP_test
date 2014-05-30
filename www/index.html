@@ -103,6 +103,7 @@
         );
                 }
             });
+			menu('0');
 	  }
 	  else
 	  {
@@ -114,7 +115,7 @@
         );
 		  
 		  }
-		menu('0');
+		
     }
 		
 		function alertDismiss()
@@ -140,7 +141,7 @@
 			{
 if(chk == true)
 {
-	if(pactelf != "" || pacemail != "")
+	if(pactelf != "" || pacname != "" || pacci != "" || pactelf != "" || pacemail != "" || pacingreso != "")
 	{
             $.ajax({
                 type: 'POST',
@@ -171,7 +172,7 @@ if(chk == true)
 	else
 	{
 		navigator.notification.alert(
-            'Los datos email y/o tel\u00e9fono son necesarios para poder contactar al paciente, por favor registre al menos uno.' ,
+            'Todos los datos del paciente son obligatorios, solo email y mensaje son opcionales. Por favor, verifique para continuar.' ,
 			 alertDismiss,
             'Notificaci\u00f3n',            
             'Aceptar'                  
