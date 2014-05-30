@@ -11,6 +11,8 @@ var xhReq = new XMLHttpRequest();
 var app = {
     // Constructor de la app
     initialize: function() {
+		
+		//validate();
     	// Estado inicial mostrando capa cuerpo
     	estado="cuerpo";
     	
@@ -64,6 +66,32 @@ var app = {
     onDeviceReady: function() {
     	// Ejecutamos la funci?n FastClick, que es la que nos elimina esos 300ms de espera al hacer click
     	new FastClick(document.body);
+		
+		var name = localStorage.getItem("nombre");
+		var ci = localStorage.getItem("ci");
+		var telf = localStorage.getItem("telf");
+		var centro = localStorage.getItem("centro");
+		var email = localStorage.getItem("email");
+		var pais = localStorage.getItem("pais");
+		if(name == null && ci == null && telf == null && centro == null && email == null && pais == null)
+		{
+		navigator.notification.confirm(
+        'Debe registrar sus datos, desea hacerlo ahora?', 
+         onConfirm,            
+        'MIP',           
+        'Si,Ahora no'        
+        );
+		}
+		else
+		{
+			navigator.notification.alert(
+            'Hola ' + name + '!' ,
+			 alertDismiss,
+            'MIP',            
+            'Hola MIP!'                  
+        );
+			}
+
     },
     
 };

@@ -12,38 +12,12 @@
     <script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-		validate();	
+/*		validate();*/	
 		
 
     }
 	
 	function doIt(field) {
-/*	var wrapper = document.getElementById("wrapper");
-    var scroller = new iScroll('wrapper', {
-                 hideScrollbar: true,
-				onBeforeScrollStart: function (e) {
-            var target = e.target;
-			e.stopImmediatePropagation();
-            while (target.nodeType != 1) target = target.parentNode;
-
-            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'CHECKBOX') {
-               	e.preventDefault();
-            } else {
-                $(target).bind('blur', function(){
-                    window.scrollTo(0,0);
-                });
-			
-            }
-        }
-    });
-        scroller.scrollToElement(field, 1000);
-		scroller.destroy();
-		scroller = null;*/
- 	/*var wrapper = document.getElementById("wrapper");
-    var scroller = new iScroll('wrapper');
-        scroller.scrollToElement(field, 1000);
-		scroller.destroy();
-		scroller = null;*/
 }
 	
     function onConfirm(buttonIndex) {
@@ -96,7 +70,8 @@
 		var docespecialidad = document.getElementById("med_especialidad").value;
 		var docemail = document.getElementById("med_email").value;
 		var docpais = document.getElementById("med_pais").value;
-						
+		
+		if(docname != "" && docci != "" && doctelf != "" && doccentro != "" && docespecialidad != "" && docemail != "" && docpais != ""){			
 		localStorage.setItem("nombre", docname);
 		localStorage.setItem("ci", docci);
 		localStorage.setItem("telf", doctelf);				
@@ -104,9 +79,6 @@
 		localStorage.setItem("especialidad", docespecialidad);
 		localStorage.setItem("email", docemail);
 		localStorage.setItem("pais", docpais);						
-      
-	          if(docemail != null && docemail != "" )
-        {
         	  $.ajax({
                 type: 'POST',
                 data: {mnombre : docname, memail : docemail},
@@ -131,25 +103,19 @@
         );
                 }
             });
-        	
-        }
-				else
-		{
-			navigator.notification.alert(
-            'Datos registrados!' ,
+	  }
+	  else
+	  {
+		  navigator.notification.alert(
+            'Todos los datos son requeridos, complete los campos vacios para continuar.' ,
 			 alertDismiss,
             'MIP',            
             'Aceptar'                  
         );
-		
-		}
+		  
+		  }
 		menu('0');
     }
-
-	function align()
-	{
-		myScroll.scrollTo(0,0);
-		}
 		
 		function alertDismiss()
 	{
