@@ -177,8 +177,7 @@ function menu(opcion){
 			if (pais != null)
 				{docpais.value = pais; }	
 			}
-			
-			$("#contenidoCuerpo").animate({ scrollTop: 0 }, "slow");
+			$('html, body').animate({scrollTop: $('#contenidoCuerpo').offset().top + 20}, 10);
 		
 		// A?adimos las clases necesarias para que la capa cuerpo se mueva al centro de nuestra app y muestre el contenido
 		cuerpo.className = 'page transition center';
